@@ -39,5 +39,33 @@
             "incomingDate" : "date",
             "read" : false,
             "deleted" : false
+        },
+
+        {
+            "id": 1,
+            "sender" : "user@gmail.com",
+            "recipient" : "user3@gmail.com",
+            "cc" : [
+
+            ],
+            "subject" : "subject13",
+            "body" : "body13",
+            "incomingDate" : "date",
+            "read" : false,
+            "deleted" : false
+        },
+
+        {
+            "id": 0,
+            "sender" : "user@gmail.com",
+            "recipient" : "user3@gmail.com",
+            "cc" : [
+
+            ],
+            "subject" : "subject13_seconda",
+            "body" : "body13_secondo",
+            "incomingDate" : "date",
+            "read" : false,
+            "deleted" : false
         }
 ]
