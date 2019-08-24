@@ -65,8 +65,10 @@ public class ClientController {
 			ClientMailboxController mailboxController = new ClientMailboxController();
 			fxmlLoader.setLocation(getClass().getResource("/resources/mailbox_view.fxml"));
 			fxmlLoader.setController(mailboxController);
+
 			emails = clientModel.retrieveObject();
 			mailboxController.setEmails(emails);
+			mailboxController.setAddress(address);
 
 			Scene scene = new Scene(fxmlLoader.load());
 

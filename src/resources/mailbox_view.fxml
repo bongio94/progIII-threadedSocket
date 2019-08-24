@@ -71,10 +71,10 @@
                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
               </textFill>
             </Label>
-                  <MenuButton alignment="CENTER" layoutX="23.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Scegli cartella">
+                  <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="23.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Scegli cartella">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem fx:id="menuItemSend" mnemonicParsing="false" text="Inviate" />
+                      <MenuItem fx:id="menuItemRec" mnemonicParsing="false" text="Ricevute" />
                     </items>
                   </MenuButton>
           </children>

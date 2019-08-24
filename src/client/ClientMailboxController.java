@@ -4,10 +4,9 @@ import common.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -47,19 +46,52 @@ public class ClientMailboxController {
 	private TextField txtField;
 
 	@FXML
+	private MenuButton menuButton;
+
+	@FXML
+	private MenuItem menuItemSend;
+
+	@FXML
+	private MenuItem menuItemRec;
+
+	@FXML
 	void handleSendButton(ActionEvent event) {
 
 	}
 
 	@FXML
 	public void initialize() {
-		ArrayList<Email> received = new ArrayList<>();
-		System.out.println(emailArrayList.size() + "clienthelper size");
+		ObservableList<Email> received;
+		ObservableList<Email> sended;
+		ArrayList<Email> rec = new ArrayList<>();
+		ArrayList<Email> send = new ArrayList<>();
+		System.out.println(emailArrayList.size() + " clienthelper size");
+		this.address = getAddress();
+		System.out.println(address);
 
-		emails = FXCollections.observableArrayList(emailArrayList);
-		emailListView.setItems(emails);
 
-		//emailListView.setItems("uno", "due");
+		for (Email email : emailArrayList) {
+			if (email.getSender().equals(address)) {
+				send.add(email);
+			} else {
+				rec.add(email);
+			}
+		}
+
+		//emails = FXCollections.observableArrayList(emailArrayList);
+		received = FXCollections.observableArrayList(rec);
+		sended = FXCollections.observableArrayList(send);
+		emailListView.setItems(received);
+
+		menuItemRec.setOnAction(actionEvent -> {
+			emailListView.setItems(received);
+		});
+
+		menuItemSend.setOnAction(actionEvent -> {
+			emailListView.setItems(sended);
+		});
+
+
 		System.out.println(emailArrayList.size() + " size in initialize\n");
 
 	}
