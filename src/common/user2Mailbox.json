@@ -1,0 +1,43 @@
+[
+        {
+            "id": 0,
+            "sender" : "user2@gmail.com",
+            "recipient" : "user@gmail.com",
+            "cc" : [
+
+            ],
+            "subject" : "subject21",
+            "body" : "body21",
+            "incomingDate" : "date",
+            "read" : false,
+            "deleted" : false
+        },
+
+        {
+            "id": 1,
+            "sender" : "user2@gmail.com",
+            "recipient" : "user3@gmail.com",
+            "cc" : [
+
+            ],
+            "subject" : "subject23",
+            "body" : "body23",
+            "incomingDate" : "date",
+            "read" : false,
+            "deleted" : false
+        },
+
+        {
+            "id": 0,
+            "sender" : "user2@gmail.com",
+            "recipient" : "user3@gmail.com",
+            "cc" : [
+
+            ],
+            "subject" : "subject23_seconda",
+            "body" : "body23_secondo",
+            "incomingDate" : "date",
+            "read" : false,
+            "deleted" : false
+        }
+]
