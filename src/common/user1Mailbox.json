@@ -8,7 +8,7 @@
             ],
             "subject" : "subject12",
             "body" : "body12",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         },
@@ -22,7 +22,7 @@
             ],
             "subject" : "subject13",
             "body" : "body13",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         },
@@ -36,7 +36,7 @@
             ],
             "subject" : "subject13_seconda",
             "body" : "body13_secondo",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         },
@@ -50,7 +50,7 @@
             ],
             "subject" : "subject21",
             "body" : "body21",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         },
@@ -64,7 +64,7 @@
             ],
             "subject" : "subject31",
             "body" : "body31",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         },
@@ -78,7 +78,7 @@
             ],
             "subject" : "subject31_seconda",
             "body" : "body31_secondo",
-            "incomingDate" : "date",
+            "incomingDate" : "12-07-2019",
             "read" : false,
             "deleted" : false
         }

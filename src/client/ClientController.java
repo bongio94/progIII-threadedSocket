@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.rmi.Naming;
 import java.util.ArrayList;
 
 public class ClientController {

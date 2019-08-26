@@ -7,11 +7,8 @@ import com.google.gson.stream.JsonReader;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+
 
 public class JsonHelper {
 
@@ -25,15 +22,15 @@ public class JsonHelper {
 
 		switch (address) {
 			case "user@gmail.com":
-				path = "C:\\Users\\vanni\\IdeaProjects\\" +
+				path = "C:\\Backup HDD\\backup_windows\\IdeaProjects\\" +
 						"progIII-threadedSocket\\src\\common\\user1Mailbox.json";
 				break;
 			case "user2@gmail.com":
-				path = "C:\\Users\\vanni\\IdeaProjects\\" +
+				path = "C:\\Backup HDD\\backup_windows\\IdeaProjects\\" +
 						"progIII-threadedSocket\\src\\common\\user2Mailbox.json";
 				break;
 			case "user3@gmail.com":
-				path = "C:\\Users\\vanni\\IdeaProjects\\" +
+				path = "C:\\Backup HDD\\backup_windows\\IdeaProjects\\" +
 						"progIII-threadedSocket\\src\\common\\user3Mailbox.json";
 				break;
 

@@ -6,8 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.zip.InflaterInputStream;
+
 
 public class ClientModel {
 	Socket socketOfClient;

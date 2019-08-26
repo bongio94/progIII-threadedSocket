@@ -4,12 +4,20 @@ import common.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -20,6 +28,7 @@ public class ClientMailboxController {
 	private ArrayList<Email> emailArrayList = new ArrayList<>();
 	private ClientModel clientModel;
 	private ClientHelper clientHelper;
+
 
 	@FXML
 	private Label topLabel;
@@ -60,6 +69,20 @@ public class ClientMailboxController {
 	}
 
 	@FXML
+	private TextArea bodyTextArea;
+
+	@FXML
+	private Text senderText;
+	@FXML
+	private Text subjectText;
+	@FXML
+	private Text ccText;
+	@FXML
+	private Button writeButton;
+
+
+
+	@FXML
 	public void initialize() {
 		ObservableList<Email> received;
 		ObservableList<Email> sended;
@@ -78,25 +101,56 @@ public class ClientMailboxController {
 			}
 		}
 
-		//emails = FXCollections.observableArrayList(emailArrayList);
 		received = FXCollections.observableArrayList(rec);
 		sended = FXCollections.observableArrayList(send);
 		emailListView.setItems(received);
 
 		menuItemRec.setOnAction(actionEvent -> {
 			emailListView.setItems(received);
+			menuButton.setText("Ricevute");
 		});
 
 		menuItemSend.setOnAction(actionEvent -> {
 			emailListView.setItems(sended);
+			menuButton.setText("Inviate");
 		});
 
-
+		emailListView.setCellFactory(emailListView1 -> new EmailListViewCell());
+		emailListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent mouseEvent) {
+				senderText.setText(emailListView.getSelectionModel().getSelectedItem().getSender());
+				subjectText.setText(emailListView.getSelectionModel().getSelectedItem().getSubject());
+				bodyTextArea.setText(emailListView.getSelectionModel().getSelectedItem().getBody());
+				ccText.setText(emailListView.getSelectionModel().getSelectedItem().getCc().toString());
+				if (!emailListView.getSelectionModel().getSelectedItem().getSender().equals(address))
+					emailListView.getSelectionModel().getSelectedItem().setRead();
+			}
+		});
 		System.out.println(emailArrayList.size() + " size in initialize\n");
 
+		writeButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				Parent root;
+				try {
+					root = FXMLLoader.load(getClass().getResource("/resources/write_email_view.fxml"));
+					Stage stage = new Stage();
+					stage.setTitle("My New Stage Title");
+					stage.setScene(new Scene(root, 450, 450));
+					stage.show();
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
+
+
 	public ClientMailboxController() {
+
 		//mails = new ArrayList<>();
 		clientModel = new ClientModel();
 		this.address = getAddress();
@@ -106,12 +160,9 @@ public class ClientMailboxController {
 
 	}
 
-
 	public void setEmails(ArrayList<Email> mails) {
 		emailArrayList = mails;
 		System.out.println(emailArrayList.size() + " size in setEmails() of client mailbox controller\n");
-
-
 	}
 
 	public ArrayList<Email> getMails() {
@@ -127,18 +178,15 @@ public class ClientMailboxController {
 		System.out.println(address);
 	}
 
-	public void prova(ArrayList<Email> received) {
+	public Text getSenderText() {
+		return senderText;
+	}
 
-		/*for (Email mail : mails) {
-			if (!(mail.getSender().equals(address)))
-				received.add(mail);
-		}*/
-		System.out.println("received " + received.size());
+	public void setSenderText(String text) {
+		this.senderText.setText(text);
+	}
 
+	private void handleWriteButton() {
 
-		//emails = FXCollections.observableArrayList(mails);
-		System.out.println("emails " + emailArrayList.size());
-		//listView = new ListView<Email>();
-		//emailListView.setItems(emails);
 	}
 }
